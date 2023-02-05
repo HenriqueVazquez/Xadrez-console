@@ -13,55 +13,55 @@ namespace xadrez  {
         }
 
         private bool podeMover(Posicao pos) {
-            Peca p = tab?.peca(pos);
+            Peca? p = Tab?.Peca(pos);
 
-            return p == null || p.cor != cor;
+            return p == null || p.Cor != Cor;
         }
 
-        public override bool[,] movimentosPossiveis() {
-            bool[,] mat = new bool[tab.linhas, tab.colunas];
+        public override bool[,] MovimentosPossiveis() {
+            bool[,] mat = new bool[Tab.Linhas, Tab.Colunas];
 
-            Posicao pos = new Posicao(0, 0);
+            Posicao? pos = new(0, 0);
 
             //Acima
-            pos.definirValores(posicao.linha - 1, posicao.coluna);
-            if (tab.posicaoValida(pos) && podeMover(pos)) {
-                mat[pos.linha, pos.coluna] = true;
+            pos.DefinirValores(Posicao.Linha - 1, Posicao.Coluna);
+            if (Tab.PosicaoValida(pos) && podeMover(pos)) {
+                mat[pos.Linha, pos.Coluna] = true;
             }
             //Ne
-            pos.definirValores(posicao.linha - 1, posicao.coluna + 1);
-            if (tab.posicaoValida(pos) && podeMover(pos)) {
-                mat[pos.linha, pos.coluna] = true;
+            pos.DefinirValores(Posicao.Linha - 1, Posicao.Coluna + 1);
+            if (Tab.PosicaoValida(pos) && podeMover(pos)) {
+                mat[pos.Linha, pos.Coluna] = true;
             }
             //Direita
-            pos.definirValores(posicao.linha, posicao.coluna + 1);
-            if (tab.posicaoValida(pos) && podeMover(pos)) {
-                mat[pos.linha, pos.coluna] = true;
+            pos.DefinirValores(Posicao.Linha, Posicao.Coluna + 1);
+            if (Tab.PosicaoValida(pos) && podeMover(pos)) {
+                mat[pos.Linha, pos.Coluna] = true;
             }
             //Se
-            pos.definirValores(posicao.linha + 1, posicao.coluna + 1);
-            if (tab.posicaoValida(pos) && podeMover(pos)) {
-                mat[pos.linha, pos.coluna] = true;
+            pos.DefinirValores(Posicao.Linha + 1, Posicao.Coluna + 1);
+            if (Tab.PosicaoValida(pos) && podeMover(pos)) {
+                mat[pos.Linha, pos.Coluna] = true;
             }
             //Abaixo
-            pos.definirValores(posicao.linha + 1, posicao.coluna);
-            if (tab.posicaoValida(pos) && podeMover(pos)) {
-                mat[pos.linha, pos.coluna] = true;
+            pos.DefinirValores(Posicao.Linha + 1, Posicao.Coluna);
+            if (Tab.PosicaoValida(pos) && podeMover(pos)) {
+                mat[pos.Linha, pos.Coluna] = true;
             }
             //So            
-            pos.definirValores(posicao.linha + 1, posicao.coluna - 1);
-            if (tab.posicaoValida(pos) && podeMover(pos)) {
-                mat[pos.linha, pos.coluna] = true;
+            pos.DefinirValores(Posicao.Linha + 1, Posicao.Coluna - 1);
+            if (Tab.PosicaoValida(pos) && podeMover(pos)) {
+                mat[pos.Linha, pos.Coluna] = true;
             }
             //Esquerda           
-            pos.definirValores(posicao.linha, posicao.coluna - 1);
-            if (tab.posicaoValida(pos) && podeMover(pos)) {
-                mat[pos.linha, pos.coluna] = true;
+            pos.DefinirValores(Posicao.Linha, Posicao.Coluna - 1);
+            if (Tab.PosicaoValida(pos) && podeMover(pos)) {
+                mat[pos.Linha, pos.Coluna] = true;
             }
             //No           
-            pos.definirValores(posicao.linha -1, posicao.coluna - 1);
-            if (tab.posicaoValida(pos) && podeMover(pos)) {
-                mat[pos.linha, pos.coluna] = true;
+            pos.DefinirValores(Posicao.Linha -1, Posicao.Coluna - 1);
+            if (Tab.PosicaoValida(pos) && podeMover(pos)) {
+                mat[pos.Linha, pos.Coluna] = true;
             }
 
             return mat;
