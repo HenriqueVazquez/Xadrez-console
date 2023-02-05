@@ -1,5 +1,4 @@
-﻿using System.Xml;
-using tabuleiro;
+﻿using tabuleiro;
 using xadrez;
 
 namespace Xadrez_console {
@@ -7,15 +6,26 @@ namespace Xadrez_console {
 
 
         private static void Main(string[] args) {
-            PosicaoXadrez pos = new PosicaoXadrez('c', 7);
+            try {
 
-            Console.WriteLine(pos);
+                Tabuleiro tab = new Tabuleiro(8, 8);
 
-            Console.WriteLine(pos.toPosicao());
+                tab.colocarPeca(new Torre(tab, tabuleiro.enums.Cor.Preta), new Posicao(0, 0));
 
-            Console.ReadLine();
+                tab.colocarPeca(new Torre(tab, tabuleiro.enums.Cor.Preta), new Posicao(1, 3));
+
+                tab.colocarPeca(new Rei(tab, tabuleiro.enums.Cor.Preta), new Posicao(0, 7));
+
+                tab.colocarPeca(new Rei(tab, tabuleiro.enums.Cor.Branca), new Posicao(3, 5));
+
+                Tela.imprimirTabuleiro(tab);
 
 
+                Console.ReadLine();
+            }
+            catch(TabuleiroException e) {
+                Console.WriteLine(e.Message);
+            }
 
         }
     }
