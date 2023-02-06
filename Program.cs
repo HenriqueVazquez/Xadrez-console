@@ -30,6 +30,21 @@ namespace Xadrez_console {
                         partida.ValidarPosicaoDeDestino(origem, destino);
 
                         partida.RealizaJogada(origem, destino);
+
+                        if (partida.Promocao) {
+                            string s;
+                            do {
+                                Console.WriteLine("Peão promovido! Escolha um número:");
+                                Console.WriteLine("1 - Dama");
+                                Console.WriteLine("2 - Bispo");
+                                Console.WriteLine("3 - Torre");
+                                Console.WriteLine("4 - Cavalo");
+
+                                 s = Console.ReadLine();
+                            } while (int.Parse(s) < 0 && int.Parse(s) > 4);
+                                partida.EscolhaPromocao(s);
+                            
+                        }
                     }
                     catch (TabuleiroException e) {
                         Console.WriteLine(e.Message);
